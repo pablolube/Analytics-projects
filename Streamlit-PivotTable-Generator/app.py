@@ -167,3 +167,17 @@ if merged_df is not None:
             st.info("Seleccioná al menos una columna para filas y una para valores para generar la tabla dinámica.")
 else:
     st.warning("🔹 Subí y fusioná archivos para habilitar la tabla dinámica.")
+
+# =========================
+# PROFILING (OPCIONAL)
+# =========================
+try:
+    from ydata_profiling import ProfileReport
+    from streamlit_pandas_profiling import st_profile_report
+
+    if merged_df is not None and st.button("🚀 Generar profiling"):
+        pr = ProfileReport(merged_df, explorative=True)
+        st_profile_report(pr)
+
+except:
+    st.warning("Profiling no disponible (instalar ydata-profiling)")
