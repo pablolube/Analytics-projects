@@ -58,10 +58,6 @@ if 'merged_df' in locals() and merged_df is not None:
     merged_df = merged_df.reset_index(drop=True)  # aseguramos índice limpio
     merged_df.insert(0, 'id_base', merged_df.index + 1)  # ID empezando en 1
 
-import streamlit as st
-import pandas as pd
-import re
-
 if 'merged_df' in locals() and merged_df is not None:
 
     st.write("## 📋 Previsualización del DataFrame combinado")
@@ -168,6 +164,8 @@ if merged_df is not None:
 else:
     st.warning("🔹 Subí y fusioná archivos para habilitar la tabla dinámica.")
 
+
+"""
 # =========================
 # PROFILING (OPCIONAL)
 # =========================
@@ -181,3 +179,4 @@ try:
 
 except:
     st.warning("Profiling no disponible (instalar ydata-profiling)")
+    """
